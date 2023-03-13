@@ -1,4 +1,4 @@
-import VirtualJoystick from "https://joker-pyc.github.io/Virtual-Joystick/src/virtual-joystick.js";
+import VirtualJoystick from "https://joker-pyc.github.io/Virtual-Joystick/src/virtual-joystick.min.js";
 
 // Define constants for the game
 const GAME_WIDTH = window.innerWidth;
@@ -42,6 +42,18 @@ sprite.addEventListener('load', function() {
 });
 
 const ball = new Image();
+const ballObj = {
+  x: 0,
+  y: 0,
+  speed: 300, // pixels per second
+};
+function resetBall() {
+  ballObj.x = Math.random() * (GAME_WIDTH - ball.width);
+  ballObj.y = Math.random() * (GAME_HEIGHT - ball.height);
+  ball.style.left = ballObj.x + 'px';
+  ball.style.top = ballObj.y + 'px';
+}
+
 ball.src = 'https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/30/null/external-ball-health-vitaliy-gorbachev-flat-vitaly-gorbachev.png';
 ball.addEventListener('load', function() {
   // Set the ball's dimensions
@@ -53,21 +65,10 @@ ball.addEventListener('load', function() {
   // Add the ball to the game container
   gameContainer.appendChild(ball);
 });
-const ballObj = {
-  x: 0,
-  y: 0,
-  speed: 300, // pixels per second
-};
+
 // Define the initial position of the ball
 let ballX = Math.floor(Math.random() * (GAME_WIDTH - ball.width));
 let ballY = Math.floor(Math.random() * (GAME_HEIGHT - ball.height));
-
-function resetBall() {
-  ballObj.x = Math.random() * (GAME_WIDTH - ball.width);
-  ballObj.y = Math.random() * (GAME_HEIGHT - ball.height);
-  ball.style.left = ballObj.x + 'px';
-  ball.style.top = ballObj.y + 'px';
-}
 
 
 // Create a virtual joystick for controlling the sprite
