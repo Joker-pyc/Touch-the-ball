@@ -85,6 +85,10 @@ const spriteObj = {
   speed: 500, // pixels per second
 };
 
+Math.degrees = function(radians) {
+  return radians * 180 / Math.PI;
+};
+
 // Define the game loop
 let lastTime = 0;
 
