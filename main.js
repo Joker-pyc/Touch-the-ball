@@ -106,7 +106,17 @@ function gameLoop(timestamp) {
   sprite.style.left = spriteObj.x + 'px';
   sprite.style.top = spriteObj.y + 'px';
 
+// Calculate the angle of the joystick
 
+  const angle = Math.atan2(-joystick.delta.x, -joystick.delta.y);
+
+  // Convert the angle from radians to degrees
+
+  const degree = Math.degrees(angle);
+
+  // Rotate the sprite
+
+  sprite.style.transform = `rotate(${-degree}deg)`;
 
   // Bounce the ball off the walls
   if (ballObj.x < 0 || ballObj.x + ball.width > GAME_WIDTH) {
