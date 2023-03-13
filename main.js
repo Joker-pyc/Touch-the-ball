@@ -5,7 +5,7 @@ const GAME_WIDTH = window.innerWidth;
 const GAME_HEIGHT = window.innerHeight;
 
 // Create the game container
-const gameContainer = document.getElementById('game-container');
+const gameContainer = document.querySelector('main');
 
 document.body.appendChild(gameContainer);
 
@@ -14,7 +14,7 @@ const scoreElem = document.createElement('div');
 scoreElem.style.position = 'absolute';
 scoreElem.style.top = '20px';
 scoreElem.style.left = '20px';
-scoreElem.style.color = 'black';
+scoreElem.style.color = 'white';
 scoreElem.style.fontSize = '24px';
 scoreElem.textContent = 'Score: 0';
 
@@ -47,6 +47,7 @@ const ballObj = {
   y: 0,
   speed: 300, // pixels per second
 };
+
 function resetBall() {
   ballObj.x = Math.random() * (GAME_WIDTH - ball.width);
   ballObj.y = Math.random() * (GAME_HEIGHT - ball.height);
@@ -112,7 +113,7 @@ function gameLoop(timestamp) {
   sprite.style.top = spriteObj.y + 'px';
 
 
-// Calculate the angle of the joystick
+  // Calculate the angle of the joystick
 
   const angle = Math.atan2(joystick.delta.y, joystick.delta.x);
 
@@ -124,7 +125,7 @@ function gameLoop(timestamp) {
 
   sprite.style.transform = `rotate(${degree}deg)`;
 
- 
+
 
   // Bounce the ball off the walls
   if (ballObj.x < 0 || ballObj.x + ball.width > GAME_WIDTH) {
