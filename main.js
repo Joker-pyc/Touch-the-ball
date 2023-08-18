@@ -1,4 +1,4 @@
-import VirtualJoystick from "https://cdn.jsdelivr.net/gh/Joker-pyc/Virtual-Joystick/src/virtual-joystick.min.js";
+import VirtualJoystick from "https://cdn.jsdelivr.net/gh/Joker-pyc/Virtual-Joystick@latest/src/virtual-joystick.min.js";
 
 // Define constants for the game
 const GAME_WIDTH = window.innerWidth;
