@@ -72,7 +72,10 @@ Math.degrees = function(radians) {
 
 let lastTime = 0;
 // Add this at the beginning of your JavaScript code to get a reference to the audio element
-const backgroundMusic = document.getElementById('backgroundMusic');
+// Create an Audio object for background music
+const backgroundMusic = new Audio('/audio.mp3');
+backgroundMusic.volume = 0; // Start with zero volume
+backgroundMusic.loop = true; // Loop the music
 
 function gameLoop(timestamp) {
   const deltaTime = (timestamp - lastTime) / 1000;
