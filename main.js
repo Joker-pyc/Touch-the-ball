@@ -6,7 +6,7 @@ const GAME_HEIGHT = window.innerHeight;
 const gameContainer = document.querySelector('main');
 document.body.appendChild(gameContainer);
 
-const timeElapsed = new Date();
+const gameStarted = new Date();
 
 const scoreElem = document.createElement('div');
 scoreElem.style.position = 'absolute';
@@ -133,7 +133,8 @@ function gameLoop(timestamp) {
     spriteObj.y + sprite.height > ballObj.y) {
     resetBall();
     score++;
-    scoreElem.textContent = `Score: ${score/(timeElapsed/10000)}`;
+    const timeElapsed = (new Date() - gameStarted) / 10000;
+    scoreElem.textContent = `Score: ${score/timeElapsed}`;
   }
 
   requestAnimationFrame(gameLoop);
