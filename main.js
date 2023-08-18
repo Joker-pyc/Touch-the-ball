@@ -6,8 +6,7 @@ const GAME_HEIGHT = window.innerHeight;
 const gameContainer = document.querySelector('main');
 document.body.appendChild(gameContainer);
 
-const gameStarted = new Date();
-let scoreRate = 1;
+let scoreRate = 10;
 
 const scoreElem = document.createElement('div');
 scoreElem.style.position = 'absolute';
@@ -136,9 +135,14 @@ function gameLoop(timestamp) {
 		resetBall();
 		score++;
 		scoreRate += 0.1;
-		const timeElapsed = (new Date() - gameStarted);
-		const timeDelta = timeElapsed / (scoreRate * 10000);
-		scoreElem.textContent = 'Score: ' + Math.floor(score / timeDelta);
+		/* we take base score which is no of balls clicked
+		 and timeElapsed since game started in seconds
+		 click 1 balls within 1sec = 1score which is impossibe 
+		 so we provide a scoreRate which increases linearly,
+		 so after 20 ball clicks scoreRate becomes ~22x,
+		 so we get 1 score if we score a ball within 22 seconds
+		                                               static * linear * 1s */
+		scoreElem.textContent = 'Score: ' + Math.floor((score * scoreRate * 1000) / timestamp);
 	}
 
 	requestAnimationFrame(gameLoop);
