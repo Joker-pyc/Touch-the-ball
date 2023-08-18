@@ -73,7 +73,7 @@ Math.degrees = function(radians) {
 let lastTime = 0;
 // Add this at the beginning of your JavaScript code to get a reference to the audio element
 // Create an Audio object for background music
-const backgroundMusic = new Audio('/audio.mp3');
+const backgroundMusic = new Audio('audio.mp3');
 backgroundMusic.volume = 0; // Start with zero volume
 backgroundMusic.loop = true; // Loop the music
 
