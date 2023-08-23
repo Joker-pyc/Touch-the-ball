@@ -75,7 +75,9 @@ Math.degrees = function(radians) {
 };
 
 let lastTime = 0;
-const backgroundMusic = document.getElementById('backgroundMusic');
+const backgroundMusic = new Audio('/audio.mp3');
+backgroundMusic.loop = true;
+
 
 function gameLoop(timestamp) {
   const deltaTime = (timestamp - lastTime) / 1000;
