@@ -16,8 +16,8 @@ scoreElem.textContent = 'Score: 0';
 gameContainer.appendChild(scoreElem);
 
 let score = 0;
-const acceleration = 800; // Adjust the acceleration factor as needed
-const deceleration = 1000; // Adjust the deceleration factor as needed
+const acceleration = 400; // Adjust the acceleration factor as needed
+const deceleration = 500; // Adjust the deceleration factor as needed
 let inertiaX = 0;
 let inertiaY = 0;
 
